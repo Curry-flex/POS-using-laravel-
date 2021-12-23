@@ -1,0 +1,4 @@
+npm install --save-dev cross-env
+
+//pagination
+{{ $product->links('pagination::bootstrap-4') }}
