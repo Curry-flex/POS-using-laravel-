@@ -5,7 +5,7 @@
 <div class="container">
     <div class="col-md-12">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 
@@ -123,16 +123,7 @@
         </div>
           
         </div>
-        <div class="col-md-3">
-        <div class="card">
-            <div class="card-header">
-               <h3>SEARCH USER</h3>
-            </div>
-            <div class="card-body">
-                
-            </div>
-        </div>
-    </div>
+  
 
     </div>
 </div>

@@ -18,9 +18,17 @@ class OrderController extends Controller
      */
     public function index()
     {
+        // $pro =Order_details::find(2);
+         
+        // $oda =$pro->product->brand;
+        // dd($oda);
+
          $oda=Order::all();
          $product=Product::all();
-        return view('orders.index',['order'=>$oda,'product'=>$product]);
+
+         $lastID =Order_details::max("order_id");
+         $oda_receipt=Order_details::where('order_id',$lastID)->get();
+        return view('orders.index',['order'=>$oda,'product'=>$product,"receipt"=>$oda_receipt]);
     }
 
     /**

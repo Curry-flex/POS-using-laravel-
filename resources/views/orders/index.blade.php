@@ -2,10 +2,10 @@
 
 
 @section('content')
-<div class="container">
-    <div class="col-md-12">
+<div class="container-fluid">
+    <div class="">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
         <div class="card">
             <div class="card-header">
                 
@@ -63,24 +63,40 @@
         </div>
           
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
         <div class="card">
             <div class="card-header">
-               <h3>Total <b class="mytotal"></b></h3>
+               <h3>Total: <b class="mytotal"></b></h3>
+               <button type="button"  class="btn btn-success fa fa-print" id="print" >Print</button>
+               <button class="btn btn-primary">Print</button>
+               <button class="btn btn-warning">Report</button>
               
             </div>
             <div class="card-body">
                <div class="row jumbotron">
                    <div class="col-md-12">
-                       <div class="form-group">
+
+                   <div class="row">
+                      <div class="col-md-6">
+
+                      <div class="form-group">
                         <label for="">Customer name</label>
                         <input type="text" readonly
-                         value="{{auth()->user()->name}}" name="cname" class="form-control" style="width:180px">
+                         value="" name="cname" class="form-control" style="width:180px">
                        </div>
-                       <div class="form-group">
+                      </div>
+                   
+                      <div class="col-md-6">
+                      <div class="form-group">
                         <label for="">Customer Phone</label>
                         <input type="text" name="phone" class="form-control" style="width:180px">
                        </div>
+                      </div>
+
+                   </div>
+
+                       
+                      
                        <div class="form-group">
                         <label for="">Payments</label>
                         <input type="number" name="payment" id="payment" class="form-control" style="width:180px">
@@ -155,6 +171,22 @@
 </div>
 
  
+<!-- Modal -->
+<div class="modal right fade" id="printmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Recepient</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <button class="btn btn-success fa fa-print">Print</button>
+         @include('Report.receipt')
+      </div>
+     
+    </div>
+  </div>
+</div>
 
 
 <style>
@@ -229,7 +261,20 @@
        $('#remain').val(remain);
    })
 
- 
+   //print section
+
+    function printRecipient(print)
+    {
+       document.getElementByID(print)
+    }
+
+    $(document).ready(function(){
+
+        $('#print').on('click',function(){
+
+            $('#printmodal').modal();
+        })
+    })
     
   </script>
 

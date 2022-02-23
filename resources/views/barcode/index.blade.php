@@ -20,6 +20,11 @@
 
                      <div class="card-body">
                          {!! $barcode->barcode !!}
+
+                         
+                         <h3 style="margin:5px;">  {{$barcode->product_code}}</h3>
+                       
+                        
                      
                      </div>
                      </div>
